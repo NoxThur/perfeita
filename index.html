@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surpresa para Isa</title>
+  <style>
+    /* Estilos Gerais */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffeef8; /* tom rosado suave */
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #fff;
+      line-height: 1.4;
+    }
+    section {
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #d63384;
+    }
+    
+    /* Linha do Tempo */
+    .timeline {
+      display: flex;
+      justify-content: center; /* centraliza as fotos */
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .timeline img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      scroll-snap-align: center;
+      transition: transform 0.3s;
+    }
+    .timeline img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Carta Digital */
+    .letter {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: 2rem auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    
+    /* Spotify Embed */
+    .spotify {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    /* Animação de Fade-In */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Transição ao scroll */
+    .animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho com mensagem -->
+  <header>
+    <h1>
+      Olá Isa, fiz essa mini página em sua homenagem minha princesa.
+    </h1>
+  </header>
+
+  <!-- Linha do Tempo -->
+  <section class="animate">
+    <h2>Linha do Tempo</h2>
+    <div class="timeline">
+      <!-- Substitua as URLs abaixo pelas fotos de momentos especiais de vocês -->
+      <img src="tela1.png" alt="Momento 1">
+      <img src="tela2.png" alt="Momento 2">
+      <img src="tela3.png" alt="Momento 3">
+      <img src="tela4.png" alt="Momento 4">
+      <img src="tela5.png" alt="Momento 5">
+    </div>
+  </section>
+
+  <!-- Carta Digital -->
+  <section class="letter animate">
+    <h2>Minha Carta Para Você</h2>
+    <p>
+      Olá Isa, tudo bom? Obrigado por existir na minha vida, eu quero que você continue sendo essa mulher incrível que você é, e também a senhorita é muito especial. Espero que aproveite 100% o seu dia. I love you🫶🏻
+    </p>
+  </section>
+
+  <!-- Playlist do Spotify -->
+  <section class="spotify animate">
+    <h2>Nossa Playlist</h2>
+    <!-- Você pode substituir o link abaixo pela URL da sua playlist personalizada -->
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7EcWxneqVepkTPM69hwIOU?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </section>
+
+  <script>
+    // Função para adicionar classe "visible" aos elementos que entram na viewport
+    const animateOnScroll = () => {
+      const animatedElements = document.querySelectorAll('.animate');
+      animatedElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    
+    // Executa a função quando a página é carregada e durante o scroll
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
